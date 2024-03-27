@@ -8,8 +8,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Middleware to parse JSON request bodies
-app.use(bodyParser.json());
-
+app.use(bodyParser.json({ limit: '50mb' })); // Adjust the limit as per your requirement
 // API endpoint for uploading files
 app.post('/api/uploadFile', async (req, res) => {
   try {
